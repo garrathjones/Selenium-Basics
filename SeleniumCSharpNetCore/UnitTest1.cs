@@ -19,15 +19,17 @@ namespace SeleniumCSharpNetCore
 
         [Test]
         public void Test1()
-        {
-            
+        {            
             Driver.Navigate().GoToUrl("https://demowf.aspnetawesome.com");
+
             Driver.FindElement(By.CssSelector(".o-ochk > ul:nth-child(1) > li:nth-child(1) > label:nth-child(1) > div:nth-child(3)")).Click();
-            Driver.FindElement(By.Id("ContentPlaceHolder1_Meal")).SendKeys("Tomato");
 
-            string comboBoxControlName = "ContentPlaceHolder1_AllMealsCombo";
-
-            CustomControl1.ComboBox(comboBoxControlName,"Almonds");
+            //Enter 'Tomato' in the Autocomplete box
+            CustomControl.EnterText(Driver.FindElement(By.Id("ContentPlaceHolder1_Meal")), "Tomato");
+            //Click 'Celery' in the AjaxCheckboxList
+            CustomControl.Click(Driver.FindElement(By.CssSelector(".o-ochk > ul:nth-child(1) > li:nth-child(1) > label:nth-child(1) > div:nth-child(3)")));
+            //Enter 'Almond' in the Combobox
+            CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Almond");
             Assert.Pass();
         }
     }
