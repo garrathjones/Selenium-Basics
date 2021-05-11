@@ -35,5 +35,11 @@ namespace SeleniumCSharpNetCore
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Almond");
             Assert.Pass();
         }
+
+        public void LoginTest()
+        {
+            Driver.Navigate().GoToUrl("http://eaapp.somee.com");
+        }
+
     }
 }
