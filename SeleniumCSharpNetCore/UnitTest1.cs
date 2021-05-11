@@ -22,12 +22,15 @@ namespace SeleniumCSharpNetCore
         {            
             Driver.Navigate().GoToUrl("https://demowf.aspnetawesome.com");
 
-            Driver.FindElement(By.CssSelector(".o-ochk > ul:nth-child(1) > li:nth-child(1) > label:nth-child(1) > div:nth-child(3)")).Click();
-
             //Enter 'Tomato' in the Autocomplete box
             CustomControl.EnterText(Driver.FindElement(By.Id("ContentPlaceHolder1_Meal")), "Tomato");
+
             //Click 'Celery' in the AjaxCheckboxList
             CustomControl.Click(Driver.FindElement(By.CssSelector(".o-ochk > ul:nth-child(1) > li:nth-child(1) > label:nth-child(1) > div:nth-child(3)")));
+
+            //Enter 'Cauliflower in the AjaxDropdown
+            CustomControl.SelectByText(Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed")), "Cauliflower");
+
             //Enter 'Almond' in the Combobox
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Almond");
             Assert.Pass();
