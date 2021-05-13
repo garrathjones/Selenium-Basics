@@ -36,7 +36,7 @@ namespace SeleniumCSharpNetCore.Steps
         [Given(@"I click login")]
         public void GivenIClickLogin()
         {
-            homePage.ClickLogin();
+            loginPage.ClickLogin();
         }
 
         [Then(@"I should see user logged in to the application")]
