@@ -1,9 +1,12 @@
-﻿Feature: SpecFlowFeature1
-	Simple calculator for adding two numbers
+﻿Feature: Login
+	Check if login functionality works
 
 @mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+Scenario: Login user as Administrator
+	Given I navigate to application
+	And I click the Login link
+	And I enter username and password
+	| UserName | Password |
+	| admin    | password |
+	And I click login
+	Then I should see user logged in to the application
